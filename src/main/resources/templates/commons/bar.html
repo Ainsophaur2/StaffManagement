@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<!--顶部栏-->
+<header class="main-header" id="headerbar">
+    <script th:src="@{/plugins/jQuery/jquery-2.2.3.min.js}"></script>
+    <script th:src="@{/plugins/jQueryUI/jquery-ui.min.js}"></script>
+    <!-- Logo -->
+    <a href="/indexpage" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini">数据</span> <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">员工管理</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+           role="button"> <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img th:src="@{/img/img.png}"
+                        class="user-image" alt="User Image">
+                        <span class="hidden-md">
+							  <span sec:authentication="name"></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header"><img
+                                th:src="@{/img/img.png}"
+                                class="img-circle" alt="User Image">
+                        </li>
+
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-right">
+                                <a href="/logout"
+                                   class="btn btn-default btn-flat">退出</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<!--侧边栏-->
+<aside class="main-sidebar" id="sidebar" style="height: 100%">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img th:src="@{/img/img.png}"
+                     class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>
+                    <span sec:authentication="name"></span>
+                </p>
+                <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+            </div>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li class="header">菜单</li>
+            <li id="admin-index">
+                <a href="/indexpage">
+                    <i class="fa fa-dashboard"></i> <span>系统首页</span>
+                </a>
+            </li>
+
+            <li id="fa fa-laptop"><a
+                    href="/checkOut/toAdd"><i
+                    class="fa fa-laptop"></i> <span>个人打卡</span></a>
+            </li>
+            <li id="fa fa-edit"><a href="/checkOut/list"><i class="fa fa-edit"></i> <span>人员打卡总记录</span></a>
+            </li>
+
+
+                <ul class="treeview-menu">
+                    <li id="system-setting1">
+                        <a href="/manager/list/"> <i class="fa fa-circle-o"></i> 用户管理</a>
+                    </li>
+                </ul>
+
+            </li>
+            <li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
+                <span>人员管理</span> <span class="pull-right-container"> <i
+                        class="fa fa-angle-left pull-right"></i>
+				</span>
+            </a>
+                <ul class="treeview-menu">
+                    <li id="system-setting6"><a href="/technology/list">
+                        <i class="fa fa-circle-o"></i> 技术部
+                    </a></li>
+                    <li id="system-setting5"><a
+                            href="/personnel/list">
+                        <i class="fa fa-circle-o"></i> 人事部
+                    </a></li>
+                    <li id="system-setting7"><a
+                            th:href="@{/finance/list}"> <i
+                            class="fa fa-circle-o"></i> 财务部
+                    </a></li>
+                    <li id="system-setting8"><a
+                            th:href="@{/administration/list}"> <i
+                            class="fa fa-circle-o"></i> 行政部
+                    </a></li>
+
+                </ul></li>
+            <li id="user-index">
+                <a href="/manager/list/">
+                    <i class="fa fa-circle-o"></i> <span>用户管理</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </section>
+
+</aside>
+
